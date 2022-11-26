@@ -8,16 +8,9 @@ import { useState } from 'react';
 
 const App =()=> {
   const pageSize = 4;
-  //  pageSize = 4;
   const apiKey = process.env.REACT_APP_NEWS_API
  
   const [progress, setProgress] = useState(0)
-  //  state = {
-  //   progress : 0 
-  //  }
-  //  setProgress = (progress) => {
-  //   setState({progress:progress})
-  //  }
     return (
       <div>
         <Router>
@@ -26,9 +19,7 @@ const App =()=> {
         height={2}
         color='#f11946'
         progress={progress}
-        // onLoaderFinished={() => setProgress(0)}
       />
-        {/* <News/> */}
         <Routes>
           <Route exact path="/" element={<News setProgress = {setProgress} apiKey={apiKey} key="general"  pageSize = {pageSize} country = "in" category = "general"/>}/>
           <Route exact path="/business" element={<News setProgress = {setProgress} apiKey={apiKey} key="business" pageSize = {pageSize} country = "in" category = "business"/>} />

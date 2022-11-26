@@ -20,10 +20,8 @@ const News = (props) => {
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
     setLoading(true);
     let data = await fetch(url);
-    // props.setProgress(30);
     let parsedData = await data.json();
     props.setProgress(70);
-    // console.log(parsedData);
     setArticles(parsedData.articles)
     setTotalResults(parsedData.totalResults)
     setLoading(false)
@@ -36,14 +34,6 @@ const News = (props) => {
     // eslint-disable-next-line
   }, [])
   
-  // const handlePrevClick = async () => {
-  //    setPage(page-1)
-  //   updateNews();
-  // };
-  // const handleNextClick = async () => {
-  //   setPage(page+1)
-  //   updateNews();
-  // };
   const fetchMoreData = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
     setPage(page+1)
